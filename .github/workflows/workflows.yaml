@@ -1,0 +1,35 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  itch_project: dustyplant/highlow
+  itch_channel: html
+
+jobs:
+  deploy:
+    name: Upload to Itch
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'coretto'
+
+      - name: Build
+        run: ./gradlew html:dist
+
+      - name: Set up butler
+        uses: jdno/setup-butler@v1
+
+      - name: Publish game to itch.io
+        run: |
+          butler push html/build/dist ${{ env.itch_project }}:${{ env.itch_channel }} --userversion ${{ github.sha }}
+        env:
+          BUTLER_API_KEY: ${{ secrets.ITCHIO_API_KEY }}
