@@ -6,6 +6,8 @@ This game is made in Java with LibGDX.
 
 You can play the game on [Itch](https://dustyplant.itch.io/highlow)!
 
+![Screenshot](./docs/screenshot.png)
+
 ## Running the Game
 
 This repo uses Gradle as the build tool. See the following instructions on how to run the game in each environment.
