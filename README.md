@@ -4,6 +4,8 @@ A game where you guess if the next card will have a higher or lower rank than th
 
 This game is made in Java with LibGDX.
 
+You can play the game on [Itch](https://dustyplant.itch.io/highlow)!
+
 ## Running the Game
 
 This repo uses Gradle as the build tool. See the following instructions on how to run the game in each environment.
