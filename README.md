@@ -38,3 +38,7 @@ python -m http.server --directory html/build/dist 8000
 # The following command works on MacOS
 open http://localhost:8000
 ```
+
+## Deployment
+
+Any pushes to the `main` branch will trigger the CI/CD pipeline to build and deploy the latest version to Itch as an HTML build.
